@@ -1,10 +1,12 @@
 using UnityEngine;
+using TMPro;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 
 public class GameController : MonoBehaviour
 {
     //Creamos todas las variables que vayamos a usar y las referencias a los gameObjects/scripts que vayamos a usar
+    [SerializeField] private TMP_Text texto;
     [SerializeField] public int score;
     [SerializeField] public int BossCounter;
     [SerializeField] public int vidas;
@@ -18,6 +20,7 @@ public class GameController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        texto.text="";
         score = 0;
         BossCounter = 0;
         Timer = 0;
@@ -49,6 +52,10 @@ public class GameController : MonoBehaviour
 
                 vidaBoss = 3;
             }
+        }
+        else
+        {
+            texto.text="Game over";
         }
     }
     public void PerderVidas(int i)
